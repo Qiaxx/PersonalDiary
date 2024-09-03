@@ -120,7 +120,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-../../skypro/Diplom/Personal_Diar/.env
+.env
 .venv
 env/
 venv/
