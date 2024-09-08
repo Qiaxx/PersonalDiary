@@ -281,20 +281,7 @@
     </style>
 </head>
  <body>
-    <header class="header">
-        <a href="#" class="logo">
-            <img src="/logo.svg" alt="Дневник Души лого">
-            <span>Дневник Души</span>
-        </a>
-        <nav class="nav">
-            <a href="{% url 'diary:diary' %}">Дневник</a>
-            <a href="#блог">Блог</a>
-            <a href="#о-нас">О нас</a>
-        </nav>
-        <div class="buttons">
-            <button class="logout" id="logoutBtn">Выход</button>
-        </div>
-    </header>
+    {% include 'diary/includes/inc_navbar.html' %}
 
     <main class="content">
         <h1>Редактировать запись</h1>
@@ -306,13 +293,6 @@
         </form>
     </main>
 
-    <footer class="footer">
-        <a href="#о-нас">О нас</a>
-        <a href="#контакты">Контакты</a>
-        <a href="#faq">FAQs</a>
-        <a href="#обратная-связь">Обратная связь</a>
-        <a href="#поддержка">Поддержка</a>
-        <p>© 2024 Дневник Души. Все права защищены.</p>
-    </footer>
+    {% include 'diary/includes/inc_footer.html' %}
 </body>
 </html>

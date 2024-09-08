@@ -225,21 +225,7 @@
 </style>
 </head>
 <body>
-    <header class="header">
-        <a href="#" class="logo">
-            <img src="https://page-images.websim.ai/%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%20%D0%94%D1%83%D1%88%D0%B8%20%D0%BB%D0%BE%D0%B3%D0%BE_1024x1024xV1MSekhkRu8QWGmc3xf58b7013b114.jpg" alt="Дневник Души лого">
-            <span>Дневник Души</span>
-        </a>
-        <nav class="nav">
-            <a href="#дневник">Дневник</a>
-            <a href="#блог">Блог</a>
-            <a href="#о-нас">О нас</a>
-        </nav>
-        <div class="buttons">
-            <button onclick="window.location.href='{% url 'users:login' %}'; return false;" class="buttons" id="loginBtn">Вход</button>
-            <button onclick="window.location.href='{% url 'users:register' %}'; return false;" class="signup" id="signupBtn">Регистрация</button>
-        </div>
-    </header>
+    {% include 'diary/includes/inc_navbar.html' %}
 
     <section class="hero animated">
         <h1>Добро пожаловать в Дневник Души</h1>
@@ -283,80 +269,10 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <a href="#о-нас">О нас</a>
-        <a href="#контакты">Контакты</a>
-        <a href="#faq">FAQs</a>
-        <a href="#обратная-связь">Обратная связь</a>
-        <a href="#поддержка">Поддержка</a>
-        <p>© 2024 Дневник Души. Все права защищены.</p>
-    </footer>
+    {% include 'diary/includes/inc_footer.html' %}
 
     <script>
-        // Функция для проверки авторизации пользователя
-        function checkAuth() {
-            // Здесь должна быть реальная проверка авторизации
-            return false; // Для примера считаем, что пользователь не авторизован
-        }
 
-        // Функция для обновления кнопок входа/выхода
-        function updateAuthButtons() {
-            const loginBtn = document.getElementById('loginBtn');
-            const signupBtn = document.getElementById('signupBtn');
-            const isAuth = checkAuth();
-
-            if (isAuth) {
-                loginBtn.textContent = 'Выход';
-                loginBtn.classList.remove('login');
-                loginBtn.classList.add('logout');
-                signupBtn.style.display = 'none';
-            } else {
-                loginBtn.textContent = 'Вход';
-                loginBtn.classList.remove('logout');
-                loginBtn.classList.add('login');
-                signupBtn.style.display = 'inline-block';
-            }
-        }
-
-        // Обработчик для кнопки входа/выхода
-        document.getElementById('loginBtn').addEventListener('click', function() {
-            const isAuth = checkAuth();
-            if (isAuth) {
-                // Логика выхода
-                alert('Выход из аккаунта');
-                // После выхода обновляем кнопки
-                updateAuthButtons();
-            } else {
-                // Логика входа
-                alert('Переход на страницу входа');
-                // После успешного входа нужно будет обновить кнопки
-            }
-        });
-
-        // Обработчик для кнопки регистрации
-        document.getElementById('signupBtn').addEventListener('click', function() {
-            alert('Переход на страницу регистрации');
-        });
-
-        // Инициализация состояния кнопок при загрузке страницы
-        updateAuthButtons();
-
-        // Анимация появления элементов при прокрутке
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.animated');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementBottom = element.getBoundingClientRect().bottom;
-                if (elementTop < window.innerHeight && elementBottom > 0) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        window.addEventListener('scroll', animateOnScroll);
-        // Вызываем функцию один раз при загрузке страницы
-        animateOnScroll();
     </script>
 </body>
 </html>

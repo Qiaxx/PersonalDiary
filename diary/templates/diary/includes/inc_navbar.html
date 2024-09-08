@@ -1,0 +1,26 @@
+<header class="header">
+    {% if not user.is_authenticated %}
+    <a href="/" class="logo">
+    {% else %}
+    <a href="{% url 'diary:diary' %}" class="logo">
+    {% endif %}
+        <img src="https://page-images.websim.ai/%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%20%D0%94%D1%83%D1%88%D0%B8%20%D0%BB%D0%BE%D0%B3%D0%BE_1024x1024xV1MSekhkRu8QWGmc3xf58b7013b114.jpg" alt="Дневник Души лого">
+        <span>Дневник Души</span>
+    </a>
+    <nav class="nav">
+        <a href="{% url 'diary:diary' %}">Дневник</a>
+        <a href="#блог">Блог</a>
+        <a href="#о-нас">О нас</a>
+    </nav>
+    <div class="buttons">
+        {% if not user.is_authenticated %}
+        <button onclick="window.location.href='{% url 'users:login' %}'; return false;" class="login" id="loginBtn">Вход</button>
+        <button onclick="window.location.href='{% url 'users:register' %}'; return false;" class="signup" id="signupBtn">Регистрация</button>
+        {% else %}
+        <form method="POST" action="{% url 'users:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout" id="logoutBtn">Выход</button>
+        </form>
+        {% endif %}
+    </div>
+</header>

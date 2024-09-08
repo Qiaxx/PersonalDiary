@@ -195,21 +195,7 @@
 </style>
 </head>
 <body>
-    <header class="header">
-        <a href="#" class="logo">
-            <img src="/logo.svg" alt="Дневник Души лого">
-            <span>Дневник Души</span>
-        </a>
-        <nav class="nav">
-            <a href="#дневник">Дневник</a>
-            <a href="#блог">Блог</a>
-            <a href="#о-нас">О нас</a>
-        </nav>
-        <div class="buttons">
-            <button class="login">Вход</button>
-            <button class="signup">Регистрация</button>
-        </div>
-    </header>
+    {% include 'diary/includes/inc_navbar.html' %}
 
     <div class="registration-container">
         <form class="registration-form fadeInUp" method="POST" action="{% url 'users:register' %}">
@@ -244,38 +230,5 @@
             </p>
         </form>
     </div>
-
-<!--    <script>-->
-<!--        document.querySelector('.login').addEventListener('click', function() {-->
-<!--            window.location.href = '#вход';-->
-<!--        });-->
-
-<!--        document.querySelector('.signup').addEventListener('click', function() {-->
-<!--            window.location.href = '#регистрация';-->
-<!--        });-->
-
-<!--        document.querySelector('.logo').addEventListener('click', function(e) {-->
-<!--            e.preventDefault();-->
-<!--            window.location.href = '/';-->
-<!--        });-->
-
-<!--        document.querySelector('.registration-form').addEventListener('submit', function(e) {-->
-<!--            e.preventDefault();-->
-<!--            const email = document.getElementById('email').value;-->
-<!--            const password = document.getElementById('password').value;-->
-<!--            const confirmPassword = document.getElementById('confirm-password').value;-->
-
-<!--            if (password !== confirmPassword) {-->
-<!--                alert('Пароли не совпадают. Пожалуйста, попробуйте снова.');-->
-<!--                return;-->
-<!--            }-->
-
-<!--            // Здесь должна быть логика отправки данных на сервер-->
-<!--            console.log('Регистрация:', { email, password });-->
-<!--            alert('Регистрация успешна! Добро пожаловать в Дневник Души!');-->
-<!--            // После успешной регистрации можно перенаправить пользователя на главную страницу или в личный кабинет-->
-<!--            // window.location.href = '/dashboard';-->
-<!--        });-->
-<!--    </script>-->
 </body>
 </html>
